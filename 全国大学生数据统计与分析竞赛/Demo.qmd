@@ -1,0 +1,89 @@
+---
+crossref: 
+  fig-prefix: 图   # 设置引用格式
+  tbl-prefix: 表
+  eq-prefix: ""
+format: 
+  pdf:
+    template: saikr.tex
+    toc: true
+    highlight-style: github
+group-id: A2-2B
+problem-id: C3-4D
+title: "基于理想解法的院校评价模型"
+abstract: |-
+  摘要第一段
+
+  摘要第二段：$E=mc^2$
+keyword: 别问 \ 问就是一只猪
+---
+
+# 一、问题重述
+
+## 问题背景
+
+为客观评价我国研究生教育实际状况与各研究生院教学质量，需要先抽取小样本进行试评估。
+
+## 结构与思路
+
+本节结构与相关思路如 @fig-逻辑图 所示。
+
+![模型建立与求解的逻辑图](bb.pdf){#fig-逻辑图 fig.pos="H" width="95%" height="25%"}
+
+### 生师比的转换
+
+查阅相关资料\[1\]，国际一流大学的生师比所在区间一般为2到4，就目前所剩数据（剔除第五行后）而言，无一达到。而该资料\[1\]也表明，生师比在10以内都可以接受。
+
+### 各指标的标准化
+
+由于本文所采用标准化方法与加权方法数量较多，故本文首先给出所用到的数据处理方法（两种标准化方法与三种客观赋权法）的公式与简单说明。
+
+## TOPSIS法求解
+
+TOPSIS法也称为理想解法，是一种有效的多指标评价方法。
+
+理想解法相关公式有以下：
+$$
+c_j^*=\begin{cases}
+\max c_{ij},\ \ j\text{为效益型属性}\\
+\min c_{ij},\ \ j\text{为成本型属性}.
+\end{cases}
+$$ {#eq-正理想解}
+
+· $c_j^*$为第$j$列的正理想解（向量）。
+
+$$
+c_j^0=\begin{cases}
+\min c_{ij},\ \ j\text{为效益型属性}\\
+\max c_{ij},\ \ j\text{为成本型属性}.
+\end{cases}
+$$ {#eq-负理想解}
+
+· $c_j^0$为第$j$列的负理想解。
+
+# 参考文献
+
+\noindent [1].别问
+
+\noindent [2].问就是一只猪
+
+# 附录
+
+\subsection*{A.代码}
+
+\small
+```{{python}}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+\normalsize 

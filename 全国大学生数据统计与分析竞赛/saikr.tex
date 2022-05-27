@@ -1,0 +1,162 @@
+\documentclass[zihao = -4]{ctexart}
+\pagestyle{plain}
+\setlength{\belowcaptionskip}{0.25cm}
+\setlength{\abovecaptionskip}{0.25cm}
+\linespread{1.0}
+
+% Load Packages--------------------------
+\usepackage[a4paper,vmargin=2cm,hmargin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{makecell}
+\usepackage[section]{placeins}
+\usepackage{setspace}
+\usepackage{titletoc}
+\usepackage{tocloft}
+
+\hypersetup{hidelinks}
+\setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
+\newcommand*{\song}{\CJKfamily{song}}
+\floatstyle{plaintop}
+\restylefloat{table}
+\ctexset{section/number = {}} % 目录一级标题编号为空
+\titlecontents{section} % 标题名
+              [0cm] % 左间距
+              {\zihao{-4} \bfseries} % 标题格式（字体、大小、垂直距离）
+              {\contentslabel{2em}} % 编号格式
+              {}% % 无序号标题格式
+              {\titlerule*[0.5pc]{.}\contentspage} % 指引线、页码
+
+\titlecontents{subsection} % 标题名
+              [1.25cm] % 左间距
+              {\fontsize{11pt}{13.2pt} \bfseries} % 标题格式（字体、大小、垂直距离）
+              {\contentslabel{1.8em}} % 编号格式
+              {}% % 无序号标题格式
+              {\titlerule*[0.5pc]{.}\contentspage} % 指引线、页码
+              
+\titlecontents{subsubsection} % 标题名
+              [2.05cm] % 左间距
+              {\fontsize{11pt}{13.2pt}} % 标题格式（字体、大小、垂直距离）
+              {\contentslabel{2.5em}} % 编号格式
+              {}% % 无序号标题格式
+              {\titlerule*[0.5pc]{.}\contentspage} % 指引线、页码
+            
+
+% Pandoc Syntax Highlighting--------------
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% Section Format--------------------------
+\titleformat{\section}
+  {\zihao{4} \heiti\centering}
+  {\bfseries}{0em}
+  {}
+  []
+
+\titleformat{\subsection}
+  {\heiti}
+  {\bfseries\arabic{section}.\bfseries\arabic{subsection}}{1em}
+  {}
+  []
+  
+\titleformat{\subsubsection}
+  {\heiti}
+  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}}{1em}
+  {}
+  []
+  
+\titleformat{\subsubsubsection}
+  {\heiti}
+  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}.\bfseries\arabic{subsubsubsection}}{1em}
+  {}
+  []
+
+\titleformat{\subsubsubsubsection}
+  {\heiti}
+  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}.\bfseries\arabic{subsubsubsection}.\bfseries\arabic{subsubsubsubsection}}{1em}
+  {}
+  []
+  
+\titleformat{\subsubsubsubsubsection}
+  {\heiti}
+  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}.\bfseries\arabic{subsubsubsection}.\bfseries\arabic{subsubsubsubsection}.\bfseries\arabic{subsubsubsubsubsection}}{1em}
+  {}
+  []
+  
+%=========================================%
+\begin{document}
+
+% Abstract--------------------------------
+\newpage
+
+\arrayrulewidth0.75pt
+\renewcommand\arraystretch{1.65}
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3.91cm} < {\centering}|p{3.91cm} < {\centering}|}
+\hline
+\small 队伍编号   & \small $group-id$ \\ 
+\hline
+\small 题号       & \small $problem-id$ \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+\rule[0.825cm]{17cm}{1pt}
+\end{center}
+
+\vspace{-27.5pt}
+
+$if(title)$
+\begin{center}
+{\zihao{3} \heiti $title$}
+\vspace{3ex}
+$endif$
+
+{{\heiti \zihao{4} 摘\quad 要}}
+\end{center}
+
+$if(abstract)$
+$abstract$
+$endif$
+
+{\vspace{4ex}\noindent{\heiti 关键词:}}
+$keyword$
+
+\thispagestyle{empty}
+
+% Contents
+\newpage
+\begin{center} % 设置目录居中
+\begin{spacing}{1.35} % 设置目录内标题间距
+\tableofcontents
+\end{spacing}
+\end{center}
+
+% Page Counter
+\setcounter{page}{0}
+\thispagestyle{empty}
+
+% Main Body-------------------------------
+\newpage
+$body$
+
+\end{document}
