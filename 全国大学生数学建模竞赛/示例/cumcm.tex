@@ -61,26 +61,10 @@ $endif$
   {}
   []
 
-\titleformat{\subsubsubsubsection}
-  {\heiti}
-  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}.\bfseries\arabic{subsubsubsection}.\bfseries\arabic{subsubsubsubsection}}{1em}
-  {}
-  []
-  
-\titleformat{\subsubsubsubsubsection}
-  {\heiti}
-  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}.\bfseries\arabic{subsubsubsection}.\bfseries\arabic{subsubsubsubsection}.\bfseries\arabic{subsubsubsubsubsection}}{1em}
-  {}
-  []
-  
-\titleformat{\subsubsubsubsubsubsection}
-  {\heiti}
-  {\bfseries\arabic{section}.\bfseries\arabic{subsection}.\bfseries\arabic{subsubsection}.\bfseries\arabic{subsubsubsection}.\bfseries\arabic{subsubsubsubsection}.\bfseries\arabic{subsubsubsubsubsection}.\bfseries\arabic{subsubsubsubsubsubsection}}{1em}
-  {}
-  []
 
 %=========================================%
 \begin{document}
+
 % Preface---------------------------------
 $if(preface)$
 \newpage
@@ -123,7 +107,7 @@ $endif$
 
 \begin{figure}[b]
 \begin{center}
-{\bfseries  \song \zihao{4} 成都工业学院}
+{\bfseries  \song \zihao{4} $school$}
 \vspace{4ex}\\
 {\bfseries  \song \zihao{4} $time$}
 \end{center}
@@ -140,10 +124,11 @@ $if(title)$
 $endif$
 
 {{\heiti \zihao{4} 摘\quad 要}}
-\end{center}
 
+\end{center}
+\normalsize
 $if(abstract)$
-$abstract$
+\quad \quad $abstract$
 $endif$
 
 {\vspace{4ex}\noindent{\heiti 关键词:}}

@@ -9,6 +9,7 @@ format:
     highlight-style: github
 NO: 二
 group: 2201017
+school: stulink大学
 name1: 山有虎
 class1: 统计2班
 number1: 1111111111
@@ -59,6 +60,7 @@ df0 = data.frame(
 #| message: false
 #| label: tbl-试评估数据
 #| tbl-cap: "研究生院的试评估数据资料"
+#| fig-pos: H
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -784,6 +786,8 @@ kbl(df_point, booktabs = T, position = "H", escape = F) %>%
 \[4\]赵静, 但琦. 数学建模与数学实验（第五版）\[M\]. 高等教育出版社, 北京, 2020.
 
 # 附录
+
+\small
 
 ```{{r}}
 #---------------------R语言代码---------------------#

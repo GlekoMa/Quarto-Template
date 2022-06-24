@@ -8,6 +8,7 @@ format:
   pdf:
     template: cumcm.tex
     highlight-style: github
+    fig-pos: 'h'
 #--队伍信息及摘要页--#
 NO: 一
 group: 1707
@@ -41,17 +42,12 @@ keyword: 别问 \ 问就是一只猪
 
 ### 数学公式
 
-#### 质能方程
+#### 带编号公式
 
 $$
 E = mc^2
 $$ {#eq-质能方程}
 
-#### 自动编号
-
-$$
-G = mg
-$$ {#eq-重力公式}
 
 #### 无编号公式
 
@@ -76,71 +72,8 @@ $$
 
 #### MIT LOGO
 
-![麻省理工学院](mit_logo.png){fig.pos="H" width="50%" height="17.5%"}
-
-#### R代码输出
-
-```{r}
-#| echo: false
-#| fig.pos: H
-#| label: fig-空气质量
-#| fig-cap: 温度与臭氧浓度
-#| warning: false
-
-library(ggplot2)
-
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess"
-)
-```
-
-#### Python代码输出
-
-```{python}
-#| echo: false
-#| fig.pos: H
-#| label: fig-螺旋
-#| fig-cap: "螺旋图"
-import numpy as np
-import matplotlib.pyplot as plt
-
-r0 = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r0
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'} 
-)
-ax.plot(theta, r0)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
-
-\newpage
-
-#### Python与R的相互调用
-
-\indent
-
-```{r}
-#| label: tbl-示例数据
-#| tbl-cap: "示例数据"
-# R代码
-library(kableExtra)
-df = data.frame(
-  "a" = 1:3,
-  "b" = 4:6
-)
-kbl(df, booktabs = T, position = "H") |>
-  kable_styling(latex_options = "striped")
-```
-
-```{python}
-# Python代码
-data = r.df
-data[["a"]]
-```
+![麻省理工学院](mit_logo.png){width="50%" height="17.5%"}
 
 ## 引用
 
-引用质能方程([-@eq-质能方程])、符号说明[-@tbl-符号说明]、空气质量图[-@fig-空气质量]、螺旋图[-@fig-螺旋]、示例数据[-@tbl-示例数据]。
+引用质能方程([-@eq-质能方程])、符号说明[-@tbl-符号说明]。
